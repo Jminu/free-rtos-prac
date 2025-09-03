@@ -117,7 +117,7 @@ header file. */
 /* 개발 중에 트랩 오류를 정의하십시오. */
 #define MYDEBUG(fmt, ...) { printf("\n[%s:%d] %s "fmt, __FILENAME__, __LINE__, __FUNCTION__, ##__VA_ARGS__); }
 extern void vAssertCalled( const char *pcFile, unsigned int ulLine );
-#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILENAME__, __LINE__ )
+#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled(__FILE_NAME__, __LINE__)
 /* USER CODE END 1 */
 
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS

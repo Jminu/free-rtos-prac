@@ -1,0 +1,34 @@
+01:46:53 **** Incremental Build of configuration Debug for project PORT ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:104:3: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  104 |   printf("Hello world!\n");
+      |   ^~~~~~
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   21 | #include "cmsis_os.h"
+  +++ |+#include <stdio.h>
+   22 | 
+../Core/Src/main.c:104:3: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  104 |   printf("Hello world!\n");
+      |   ^~~~~~
+../Core/Src/main.c:104:3: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:276:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  276 |         printf("[TASK] StartDefaultTask\n");
+      |         ^~~~~~
+../Core/Src/main.c:276:9: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "PORT.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/jinmin-u/STM32CubeIDE/rtos_prac/PORT/STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PORT.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PORT.elf
+ 
+arm-none-eabi-size  PORT.elf 
+arm-none-eabi-objdump -h -S PORT.elf  > "PORT.list"
+   text	   data	    bss	    dec	    hex	filename
+  14296	    108	   5988	  20392	   4fa8	PORT.elf
+Finished building: default.size.stdout
+ 
+Finished building: PORT.list
+ 
+
+01:46:54 Build Finished. 0 errors, 3 warnings. (took 765ms)
+
